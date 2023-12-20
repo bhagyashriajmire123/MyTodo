@@ -1,0 +1,18 @@
+<h1> My todo list </h1>
+
+<table>
+    <tr>
+        <th>Item</th>
+    </tr>
+    {% comment %} / # object_list is default query set for render # / {% endcomment %}
+    {% for task in tasks %}     
+    <tr>
+        <td>{{task.title}}</td>
+        
+        <td><a href="{% url 'task' task.id %}">View</a></td>
+    
+    </tr>
+    {% empty %}
+    <h3> No items in the List</h3>
+    {% endfor %}
+</table>
