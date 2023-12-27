@@ -1,8 +1,11 @@
 <h1> My todo list </h1>
+<a href="{% url 'task-create' %}">Add task</a>
 
 <table>
     <tr>
         <th>Item</th>
+        <th></th>
+        <th></th>
     </tr>
     {% comment %} / # object_list is default query set for render # / {% endcomment %}
     {% for task in tasks %}     
@@ -10,6 +13,8 @@
         <td>{{task.title}}</td>
         
         <td><a href="{% url 'task' task.id %}">View</a></td>
+        <td><a href="{% url 'task-update' task.id %}">Edit</a></td>
+        <td><a href="{% url 'task-delete' task.id %}">Delete<a></td>
     
     </tr>
     {% empty %}
